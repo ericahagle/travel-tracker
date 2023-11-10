@@ -1,5 +1,44 @@
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: radial-gradient(circle, rgba(63,94,251,1) 35%, rgba(252,70,107,1) 100%);
+  color: white;
+}
+
+form {
+  width:35rem;
+  margin: auto;
+}
+
+.login-header {
+  text-align: center;
+}
+
+.login-instructions {
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+
+input {
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 15px 18px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: rgb(250, 135, 236);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+  width: 100%;
+  font-size: 18px;
+  
+}
+
+button:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .hidden {
