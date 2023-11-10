@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
 
+<body>
+  <form>
+    <h1 class="login-header" id="loginHeader">Welcome to Travel Tracker!</h1>
+    <h2 class="login-instructions" id="loginInstructions">Please sign in to view your Dashboard</h2>
+    <label for="username">User Name</label><br>
+    <input type="text" placeholder="Enter username" id="username" name="username" required><br>
+    <label for="password">Password</label><br>
+    <input type="text" placeholder="Enter password" id="password" name="password" required><br>
+    <button type="submit">Login</button>
+  </form>
+  <main class="hidden">
+    <p>FPO</p>
+  </main>
+  <script src="bundle.js"></script>
 </body>
+
 </html>
