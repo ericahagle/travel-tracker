@@ -1,25 +1,24 @@
 ////////////////////* Functions *////////////////////
-function getTravelerTripsData(traveler, trips) {
+function getTravelerData(traveler, trips, destinations) {
   const travelerTripsData = trips.filter((trip) => {
     return trip.userID === traveler.id;
   });
-  const travelerWithTrips = {
+  
+  const travelerDestinationIDs = travelerTripsData.map((trip) => {
+    return trip.destinationID;
+  });
+
+  const travelerDestinationsData = destinations.filter((destination) => {
+    return travelerDestinationIDs.includes(destination.id);
+  });
+
+  const travelerData = {
     ...traveler,
-    trips: travelerTripsData || []
+    trips: travelerTripsData || [],
+    destinations: travelerDestinationsData || []
   };
-  return travelerWithTrips;
+  return travelerData;
 }
 
-// function getCompleteTravelerData(traveler, destinations) {
-//   const travelerDestinationsData = destinations.filter((destination) => {
-//     return destination.id === traveler.destinationID;
-//   });
-//   const completeTraveler = {
-//     ...traveler,
-//     destinations: travelerDestinationsData || []
-//   }
-//   return completeTraveler;
-// }
-
 ////////////////////* Exports *////////////////////
-module.exports = { getTravelerTripsData };
+module.exports = { getTravelerData };
