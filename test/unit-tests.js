@@ -153,5 +153,5 @@ describe('traveler object creation', function () {
       trips: [],
       destinations: []
     });
-  })
+  });
 });
