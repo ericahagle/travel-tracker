@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form>
+  <form class="hidden">
     <h1 class="login-header" id="loginHeader">Welcome to Travel Tracker!</h1>
     <h2 class="login-instructions" id="loginInstructions">Please sign in to view your Dashboard</h2>
     <label for="username">User Name</label><br>
@@ -18,8 +18,49 @@
     <input type="text" placeholder="Enter password" id="password" name="password" required><br>
     <button type="submit">Login</button>
   </form>
-  <main class="hidden">
-    <p>FPO</p>
+  <main class="dashboard" id="travelerDashboard">
+    <h1 class="traveler-dashboard-header" id="travelerDashboardHeader">Welcome Traveler!</h1>
+    <article class="single total-spend" id="totalSpend">
+      <h2>Total Spend This Year</h2>
+      <p>$$$$$$$</p>
+    </article>
+    <article class="double">
+      <h2>Pending/Upcoming Trips</h2>
+      <ul>
+        <li>Trip 1</li>
+      </ul>
+    </article>
+    <article class="double">
+      <h2>Past Trips</h2>
+      <ul>
+        <li>Trip 1</li>
+        <li>Trip 2</li>
+        <li>Trip 3</li>
+      </ul>
+    </article>
+    <form class="single create-trip-request">
+      <h2>Create Trip Request</h2>
+      <label for="start-date">Start Date</label>
+      <input type="date" placeholder="Start Date" id="startDate" name="startDate" required>
+      <label for="start-date">End Date</label>
+      <input type="date" placeholder="End Date" id="endDate" name="endDate" required>
+      <label for="travelers">Number of Travelers</label>
+      <select name="travelers" id="numberOfTravelers" required>
+        <option value="" disabled selected>Select number of travelers</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <label for="destinations">Destination</label>
+      <select name="destinations" id="destinations" required>
+        <option value="" disabled selected>Select your destination</option>
+        <option value="dest1">Destination 1</option>
+        <option value="dest2">Destination 2</option>
+        <option value="dest3">Destination 3</option>
+      </select>
+      <button type="submit">Submit Trip Request</button>
+    </form>
   </main>
   <script src="bundle.js"></script>
 </body>

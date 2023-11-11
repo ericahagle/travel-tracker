@@ -3,12 +3,38 @@ body {
   color: white;
 }
 
-form {
-  width:35rem;
-  margin: auto;
+.dashboard {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
-.login-header {
+.single {
+  flex: 1 100%;
+}
+
+.double {
+  flex: 2 50%;
+  text-align: center;
+}
+
+.total-spend {
+  text-align: center;
+}
+
+form {
+  width: 35rem;
+  margin: auto;
+  text-align: center;
+  border: white solid 3px;
+}
+
+.create-trip-request {
+  align-self: flex-end;
+  max-width: 75rem;
+}
+
+h1 h2 {
   text-align: center;
 }
 
@@ -18,7 +44,7 @@ form {
 }
 
 input {
-  width: 100%;
+  max-width: 50%;
   margin: 10px 0;
   border-radius: 5px;
   padding: 15px 18px;
@@ -31,7 +57,7 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   margin: 20px 0;
-  width: 100%;
+  max-width: 50%;
   font-size: 18px;
   
 }
@@ -39,6 +65,10 @@ button {
 button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .hidden {
