@@ -88,12 +88,12 @@ const fetchDestinations = () => {
 }
 
 /////* Fetch All Data */////
-const fetchAllData = () => {
+const fetchAllData = (travelerID) => {
   return Promise.all([
     fetchTraveler(travelerID),
     fetchAllTravelers(),
     fetchTrips(),
-    fetchDestinations
+    fetchDestinations()
   ])
 }
 
