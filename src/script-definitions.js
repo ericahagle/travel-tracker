@@ -20,5 +20,7 @@ function getTravelerData(traveler, trips, destinations) {
   return travelerData;
 }
 
+
+
 ////////////////////* Exports *////////////////////
 module.exports = { getTravelerData };

@@ -20,11 +20,11 @@ import {
 import { getTravelerData } from './script-definitions';
 
 ////////////////////* Import from dom-updates.js *////////////////////
-import { updateWelcome } from './dom-updates';
+import { updateWelcome, updatePastTrips } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
 window.addEventListener('load', () => {
-  fetchAllData(1)
+  fetchAllData(2)
     .then(data => {
       // console.log(data);
       const traveler = data[0];
@@ -38,5 +38,6 @@ window.addEventListener('load', () => {
       const currentTraveler = getTravelerData(traveler, allTrips, allDestinations);
       console.log("Current Traveler:", currentTraveler);
       updateWelcome(currentTraveler);
+      updatePastTrips(currentTraveler);
     })
 });
