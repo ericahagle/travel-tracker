@@ -42,7 +42,11 @@ function getCompleteTrip(trip, destinations) {
 }
 
 function getCurrentTravelerCompleteTrips(trips, destinations) {
-  return trips.map(trip => getCompleteTrip(trip, destinations));
+  if (!trips) {
+    return null;
+  } else {
+    return trips.map(trip => getCompleteTrip(trip, destinations));
+  }
 }
 
 ////////////////////* Exports *////////////////////
