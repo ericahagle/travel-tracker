@@ -17,7 +17,12 @@ import {
 import { getCurrentTraveler, getCurrentTravelerCompleteTrips } from './script-definitions';
 
 ////////////////////* Import from dom-updates.js *////////////////////
-import { updateGreeting, updatePastTripsList, updatePendingTripsList } from './dom-updates';
+import {
+  updateGreeting,
+  updatePastTripsList,
+  updatePendingTripsList,
+  updateUpcomingTripsList
+} from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
 window.addEventListener('load', () => {
@@ -38,5 +43,6 @@ window.addEventListener('load', () => {
       const currentTravelerCompleteTrips = getCurrentTravelerCompleteTrips(currentTraveler.trips, currentTraveler.destinations);
       updatePastTripsList(currentTravelerCompleteTrips);
       updatePendingTripsList(currentTravelerCompleteTrips);
+      updateUpcomingTripsList(currentTravelerCompleteTrips);
     })
 });

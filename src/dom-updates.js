@@ -2,6 +2,7 @@
 const greeting = document.querySelector('#travelerDashboardHeader');
 const pastTripsList = document.querySelector('#pastTrips');
 const pendingTripsList = document.querySelector('#pendingTrips');
+const upcomingTripsList = document.querySelector('#upcomingTrips');
 
 ////////////////////* DOM Updates *////////////////////
 const updateGreeting = (currentTraveler) => {
@@ -41,5 +42,21 @@ const updatePendingTripsList = (currentTravelerCompleteTrips) => {
   pendingTripsList.innerHTML += currentTravelerPendingTrip;
 }
 
+const updateUpcomingTripsList = (currentTravelerCompleteTrips) => {
+  upcomingTripsList.innerHTML = '';
+
+  const dateCheckedTrips = [];
+  currentTravelerCompleteTrips.forEach((trip) => {
+    if ((Date.parse(trip.tripDate) > Date.parse(new Date())) && trip.status === 'approved') {
+      dateCheckedTrips.push(trip);
+    }
+    return dateCheckedTrips;
+  })
+
+  const currentTravelerPastTrip = dateCheckedTrips.map(trip =>
+    `<li><img src="${trip.destinationImage}" alt="Image of ${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
+  upcomingTripsList.innerHTML += currentTravelerPastTrip;
+}
+
 ////////////////////* Exports *////////////////////
-export { updateGreeting, updatePastTripsList, updatePendingTripsList }
+export { updateGreeting, updatePastTripsList, updatePendingTripsList, updateUpcomingTripsList }
