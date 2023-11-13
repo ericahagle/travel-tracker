@@ -1,7 +1,7 @@
 ////////////////////* Imports *////////////////////
 import chai from 'chai';
 const expect = chai.expect;
-const { getCurrentTraveler } = require('../src/script-definitions.js');
+const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips } = require('../src/script-definitions.js');
 const { travelers, trips, destinations } = require('./test-data.js');
 
 ////////////////////* Tests *////////////////////
@@ -149,5 +149,45 @@ describe('traveler object creation', function () {
       trips: [],
       destinations: []
     });
+  });
+});
+
+describe('tests that require specific sets of user data', function () {
+  const travelerWithOneTrip = getCurrentTraveler(travelers[0], trips, destinations);
+  const travelerWithManyTrips = getCurrentTraveler(travelers[1], trips, destinations);
+  const travelerWithNoTrips = getCurrentTraveler(travelers[2], trips, destinations);
+
+  describe('combine trips with destinations', function () {
+    it('should return a complete trip object including destination info', function () {
+      expect(getCompleteTrip(travelerWithOneTrip.trips[0], travelerWithOneTrip.destinations)).to.deep.equal({
+        tripID: 117,
+        userID: 1,
+        destination: 'San Juan, Puerto Rico',
+        destinationImage: 'https://images.unsplash.com/photo-1580237541049-2d715a09486e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80',
+        estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 900,
+        tripDate: '2021/01/09',
+        tripDuration: 15,
+        status: 'approved',
+        travelers: 3,
+        suggestedActivities: []
+      });
+      expect(getCompleteTrip(travelerWithManyTrips.trips[0], travelerWithManyTrips.destinations)).to.deep.equal({
+        tripID: 89,
+        userID: 2,
+        destination: 'Toronto, Canada',
+        destinationImage: 'https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80',
+        estimatedLodgingCostPerDay: 90,
+        estimatedFlightCostPerPerson: 450,
+        tripDate: '2019/09/27',
+        tripDuration: 13,
+        status: 'approved',
+        travelers: 5,
+        suggestedActivities: []
+      });
+    });
+    it('should return null if current user has no trip info', function () {
+      expect(getCompleteTrip(travelerWithNoTrips.trips[0], travelerWithNoTrips.destinations)).to.be.null;
+    })
   });
 });

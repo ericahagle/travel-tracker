@@ -21,19 +21,23 @@ function getCurrentTraveler(traveler, trips, destinations) {
 }
 
 function getCompleteTrip(trip, destinations) {
-  const destinationOfTrip = destinations.find(destination => destination.id === trip.destinationID);
-  return {
-    tripID: trip.id,
-    userID: trip.userID,
-    destination: destinationOfTrip.destination,
-    destinationImage: destinationOfTrip.image,
-    estimatedLodgingCostPerDay: destinationOfTrip.estimatedLodgingCostPerDay,
-    estimatedFlightCostPerPerson: destinationOfTrip.estimatedFlightCostPerPerson,
-    tripDate: trip.date,
-    tripDuration: trip.duration,
-    status: trip.status,
-    travelers: trip.travelers,
-    suggestedActivities: trip.suggestedActivities,
+  if (!trip) {
+    return null;
+  } else {
+    const destinationOfTrip = destinations.find(destination => destination.id === trip.destinationID);
+    return {
+      tripID: trip.id,
+      userID: trip.userID,
+      destination: destinationOfTrip.destination,
+      destinationImage: destinationOfTrip.image,
+      estimatedLodgingCostPerDay: destinationOfTrip.estimatedLodgingCostPerDay,
+      estimatedFlightCostPerPerson: destinationOfTrip.estimatedFlightCostPerPerson,
+      tripDate: trip.date,
+      tripDuration: trip.duration,
+      status: trip.status,
+      travelers: trip.travelers,
+      suggestedActivities: trip.suggestedActivities,
+    }
   }
 }
 
