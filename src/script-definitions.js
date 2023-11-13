@@ -12,12 +12,12 @@ function getTravelerData(traveler, trips, destinations) {
     return travelerDestinationIDs.includes(destination.id);
   });
 
-  const travelerData = {
-    ...traveler,
+  const currentTraveler = {
+    traveler: traveler,
     trips: travelerTripsData || [],
     destinations: travelerDestinationsData || []
   };
-  return travelerData;
+  return currentTraveler;
 }
 
 ////////////////////* Exports *////////////////////

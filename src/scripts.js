@@ -16,6 +16,6 @@ import {
 import { getTravelerData } from './script-definitions';
 
 ////////////////////* Import from dom-updates.js *////////////////////
-
+import { updateGreeting } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
