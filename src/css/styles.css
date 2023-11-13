@@ -1,6 +1,5 @@
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 35%, rgba(252,70,107,1) 100%);
-  color: white;
+  background: white;
 }
 
 .dashboard {
@@ -13,8 +12,8 @@ body {
   flex: 1 100%;
 }
 
-.double {
-  flex: 2 50%;
+.triple {
+  flex: 3;
   text-align: center;
 }
 
@@ -26,12 +25,12 @@ form {
   width: 35rem;
   margin: auto;
   text-align: center;
-  border: white solid 3px;
+  border: gray solid 3px;
 }
 
 .create-trip-request {
   align-self: flex-end;
-  max-width: 75rem;
+  max-width: 100rem;
 }
 
 h1 h2 {
@@ -52,7 +51,7 @@ input {
 }
 
 button {
-  background-color: rgb(250, 135, 236);
+  background-color: darkblue;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
