@@ -11,7 +11,15 @@ const updateGreeting = (currentTraveler) => {
 const updatePastTripsList = (currentTravelerCompleteTrips) => {
   pastTripsList.innerHTML = '';
 
-  const currentTravelerPastTrip = currentTravelerCompleteTrips.map(trip => 
+  const dateCheckedTrips = [];
+  currentTravelerCompleteTrips.forEach((trip) => {
+    if ((Date.parse(trip.tripDate) < Date.parse(new Date())) && trip.status === 'approved') {
+      dateCheckedTrips.push(trip);
+    }
+    return dateCheckedTrips;
+  })
+
+  const currentTravelerPastTrip = dateCheckedTrips.map(trip => 
     `<li><img src="${trip.destinationImage}" alt="Image of ${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
     pastTripsList.innerHTML += currentTravelerPastTrip;
 }

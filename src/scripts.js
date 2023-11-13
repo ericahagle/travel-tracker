@@ -21,7 +21,7 @@ import { updateGreeting, updatePastTripsList } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
 window.addEventListener('load', () => {
-  fetchAllData(2)
+  fetchAllData(50)
     .then(data => {
       // console.log(data);
       const traveler = data[0];
