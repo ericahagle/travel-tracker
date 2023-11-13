@@ -20,5 +20,34 @@ function getCurrentTraveler(traveler, trips, destinations) {
   return currentTraveler;
 }
 
+function getCompleteTrip(trip, destinations) {
+  if (!trip) {
+    return null;
+  } else {
+    const destinationOfTrip = destinations.find(destination => destination.id === trip.destinationID);
+    return {
+      tripID: trip.id,
+      userID: trip.userID,
+      destination: destinationOfTrip.destination,
+      destinationImage: destinationOfTrip.image,
+      estimatedLodgingCostPerDay: destinationOfTrip.estimatedLodgingCostPerDay,
+      estimatedFlightCostPerPerson: destinationOfTrip.estimatedFlightCostPerPerson,
+      tripDate: trip.date,
+      tripDuration: trip.duration,
+      status: trip.status,
+      travelers: trip.travelers,
+      suggestedActivities: trip.suggestedActivities,
+    }
+  }
+}
+
+function getCurrentTravelerCompleteTrips(trips, destinations) {
+  if (!trips) {
+    return null;
+  } else {
+    return trips.map(trip => getCompleteTrip(trip, destinations));
+  }
+}
+
 ////////////////////* Exports *////////////////////
-module.exports = { getCurrentTraveler };
+module.exports = { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips }
