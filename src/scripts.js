@@ -14,10 +14,10 @@ import {
 } from './api-calls';
 
 ////////////////////* Import from script-definitions.js *////////////////////
-import { getCurrentTraveler } from './script-definitions';
+import { getCurrentTraveler, getCurrentTravelerCompleteTrips } from './script-definitions';
 
 ////////////////////* Import from dom-updates.js *////////////////////
-import { updateGreeting } from './dom-updates';
+import { updateGreeting, updatePastTripsList } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
 window.addEventListener('load', () => {
@@ -35,5 +35,7 @@ window.addEventListener('load', () => {
       const currentTraveler = getCurrentTraveler(traveler, allTrips, allDestinations);
       console.log("Current Traveler:", currentTraveler);
       updateGreeting(currentTraveler);
+      const currentTravelerCompleteTrips = getCurrentTravelerCompleteTrips(currentTraveler.trips, currentTraveler.destinations);
+      updatePastTripsList(currentTravelerCompleteTrips);
     })
 });
