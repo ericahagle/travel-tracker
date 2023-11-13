@@ -1,9 +1,9 @@
 ////////////////////* Functions *////////////////////
-function getTravelerData(traveler, trips, destinations) {
+function getCurrentTraveler(traveler, trips, destinations) {
   const travelerTripsData = trips.filter((trip) => {
     return trip.userID === traveler.id;
   });
-  
+
   const travelerDestinationIDs = travelerTripsData.map((trip) => {
     return trip.destinationID;
   });
@@ -12,13 +12,13 @@ function getTravelerData(traveler, trips, destinations) {
     return travelerDestinationIDs.includes(destination.id);
   });
 
-  const travelerData = {
-    ...traveler,
+  const currentTraveler = {
+    traveler: traveler,
     trips: travelerTripsData || [],
     destinations: travelerDestinationsData || []
   };
-  return travelerData;
+  return currentTraveler;
 }
 
 ////////////////////* Exports *////////////////////
-module.exports = { getTravelerData };
+module.exports = { getCurrentTraveler };

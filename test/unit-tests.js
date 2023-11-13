@@ -1,16 +1,15 @@
 ////////////////////* Imports *////////////////////
 import chai from 'chai';
 const expect = chai.expect;
-const { getTravelerData } = require('../src/script-definitions.js');
+const { getCurrentTraveler } = require('../src/script-definitions.js');
 const { travelers, trips, destinations } = require('./test-data.js');
 
 ////////////////////* Tests *////////////////////
 describe('traveler object creation', function () {
   it('should add trips and destination data to user object', function () {
-    expect(getTravelerData(travelers[0], trips, destinations)).to.deep.equal({
-      id: 1,
-      name: 'Ham Leadbeater',
-      travelerType: 'relaxer',
+    // console.log(getTravelerData(travelers[0], trips, destinations));
+    expect(getCurrentTraveler(travelers[0], trips, destinations)).to.deep.equal({
+      traveler: { id: 1, name: 'Ham Leadbeater', travelerType: 'relaxer' },
       trips: [
         {
           id: 117,
@@ -34,11 +33,9 @@ describe('traveler object creation', function () {
         }
       ]
     });
-
-    expect(getTravelerData(travelers[1], trips, destinations)).to.deep.equal({
-      id: 2,
-      name: 'Rachael Vaughten',
-      travelerType: 'thrill-seeker',
+    // console.log(getCurrentTraveler(travelers[1], trips, destinations));
+    expect(getCurrentTraveler(travelers[1], trips, destinations)).to.deep.equal({
+      traveler: { id: 2, name: 'Rachael Vaughten', travelerType: 'thrill-seeker' },
       trips: [
         {
           id: 89,
@@ -146,10 +143,9 @@ describe('traveler object creation', function () {
   });
 
   it('should add empty arrays to user object if no trips and/or destinations data is found', function () {
-    expect(getTravelerData(travelers[2], trips, destinations)).to.deep.equal({
-      id: 3,
-      name: 'Sibby Dawidowitsch',
-      travelerType: 'shopper',
+    // console.log(getCurrentTraveler(travelers[2], trips, destinations));
+    expect(getCurrentTraveler(travelers[2], trips, destinations)).to.deep.equal({
+      traveler: { id: 3, name: 'Sibby Dawidowitsch', travelerType: 'shopper' },
       trips: [],
       destinations: []
     });

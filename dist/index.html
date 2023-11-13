@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form class="hidden">
+  <form class="hidden" id="loginForm">
     <h1 class="login-header" id="loginHeader">Welcome to Travel Tracker!</h1>
     <h2 class="login-instructions" id="loginInstructions">Please sign in to view your Dashboard</h2>
     <label for="username">User Name</label><br>
@@ -20,39 +20,37 @@
   </form>
   <main class="dashboard" id="travelerDashboard">
     <h1 class="traveler-dashboard-header" id="travelerDashboardHeader">Welcome Traveler!</h1>
-    <article class="single total-spend" id="totalSpend">
+    <section class="single total-spend" id="totalSpend">
       <h2>Total Spend This Year</h2>
       <p>$$$$$$$</p>
-    </article>
-    <article class="double">
-      <h2>Pending/Upcoming Trips</h2>
-      <ul>
-        <li>Trip 1</li>
+    </section>
+    <section class="triple">
+      <h2>Pending Trips</h2>
+      <ul class="pending-trips" id="pendingTrips">
+        <li>You currently have no pending trips.</li>
       </ul>
-    </article>
-    <article class="double">
+    </section>
+    <section class="triple">
+      <h2>Upcoming Trips</h2>
+      <ul class="upcoming-trips" id="upcomingTrips">
+        <li>You currently have no upcoming trips.</li>
+      </ul>
+    </section>
+    <section class="triple">
       <h2>Past Trips</h2>
-      <ul>
-        <li>Trip 1</li>
-        <li>Trip 2</li>
-        <li>Trip 3</li>
+      <ul class="past-trips" id="pastTrips">
+        <li>You currently have no past trips.</li>
       </ul>
-    </article>
+    </section>
     <form class="single create-trip-request">
-      <h2>Create Trip Request</h2>
-      <label for="start-date">Start Date</label>
+      <h2>Where would you rather be today?</h2>
+      <label for="start-date">When would you like to leave?</label>
       <input type="date" placeholder="Start Date" id="startDate" name="startDate" required>
-      <label for="start-date">End Date</label>
-      <input type="date" placeholder="End Date" id="endDate" name="endDate" required>
-      <label for="travelers">Number of Travelers</label>
-      <select name="travelers" id="numberOfTravelers" required>
-        <option value="" disabled selected>Select number of travelers</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-      <label for="destinations">Destination</label>
+      <label for="duration">How long would you like to stay?</label>
+      <input type="number" name="duration" placeholder="1" min="1" id="duration" required>
+      <label for="travelers">How many in your party?</label>
+      <input type="number" name="numOfTravelers" placeholder="1" min="1" id="num-of-travelers" required>
+      <label for="destinations">Where would you like to go?</label>
       <select name="destinations" id="destinations" required>
         <option value="" disabled selected>Select your destination</option>
         <option value="dest1">Destination 1</option>
