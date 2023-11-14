@@ -1,7 +1,7 @@
 ////////////////////* Imports *////////////////////
 import chai from 'chai';
 const expect = chai.expect;
-const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips, getTotalSpendThisYear } = require('../src/script-definitions.js');
+const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips, getTotalSpendThisYear, getCostOfRequestedTrip } = require('../src/script-definitions.js');
 const { travelers, trips, destinations } = require('./test-data.js');
 
 ////////////////////* Tests *////////////////////
@@ -147,6 +147,18 @@ describe('traveler object creation', function () {
       trips: [],
       destinations: []
     });
+  });
+});
+
+describe('trip cost', function () {
+  it('should return the cost of a requested trip', function () {
+    expect(getCostOfRequestedTrip(10, 1, "Paris, France", destinations)).to.deep.equal('1534.50');
+
+    expect(getCostOfRequestedTrip(7, 2, "San Juan, Puerto Rico", destinations)).to.deep.equal('2519.00');
+  });
+
+  it('should return null if trip is not found', function () {
+    expect(getCostOfRequestedTrip(7, 2, "San Juan, Puerto", destinations)).to.be.null;
   });
 });
 
