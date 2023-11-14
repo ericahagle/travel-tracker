@@ -80,7 +80,7 @@ const updateUpcomingTripsList = (currentTravelerCompleteTrips) => {
 
 const updateTotalSpendAmount = (totalSpend) => {
   totalSpendAmount.innerHTML = '';
-  totalSpendAmount.innerHTML = totalSpend;
+  totalSpendAmount.innerHTML = `$${totalSpend}`;
 }
 
 ////////////////////* Exports *////////////////////
