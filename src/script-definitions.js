@@ -49,5 +49,20 @@ function getCurrentTravelerCompleteTrips(trips, destinations) {
   }
 }
 
+function getTotalSpendThisYear(combinedTrips, year) {
+  let totalSpend = 0;
+  combinedTrips.forEach((trip) => {
+    if (trip.tripDate.includes(year)) {
+      totalSpend += ((trip.estimatedLodgingCostPerDay * trip.tripDuration) + (trip.estimatedFlightCostPerPerson * trip.travelers)) * 1.1;
+    }
+  });
+  return totalSpend.toFixed(2);
+}
+
 ////////////////////* Exports *////////////////////
-module.exports = { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips }
+module.exports = {
+  getCurrentTraveler,
+  getCompleteTrip,
+  getCurrentTravelerCompleteTrips,
+  getTotalSpendThisYear
+}
