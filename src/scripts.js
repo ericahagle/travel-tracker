@@ -17,7 +17,8 @@ import {
 import {
   getCurrentTraveler,
   getCurrentTravelerCompleteTrips,
-  getTotalSpendThisYear
+  getTotalSpendThisYear,
+  getCostOfRequestedTrip
 } from './script-definitions';
 
 ////////////////////* Import from dom-updates.js *////////////////////
@@ -27,7 +28,13 @@ import {
   updatePendingTripsList,
   updateUpcomingTripsList,
   updateTotalSpendAmount,
-  updateDestinationsDropDown
+  updateDestinationsDropDown,
+  updateEstimatedTripCost,
+  tripRequestForm,
+  requestedTripDate,
+  requestedTripDuration,
+  requestedTripTravelers,
+  destinationsDropDown
 } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
@@ -50,4 +57,15 @@ window.addEventListener('load', () => {
       updateTotalSpendAmount(totalSpend);
       updateDestinationsDropDown(allDestinations);
     });
+});
+
+tripRequestForm.addEventListener('input', () => {
+  if (requestedTripDate.value && requestedTripDuration.value && requestedTripTravelers.value && destinationsDropDown.value) {
+    fetchDestinations()
+      .then(data => {
+        const allDestinations = data;
+        const estimatedCost = getCostOfRequestedTrip(requestedTripDuration.value, requestedTripTravelers.value, destinationsDropDown.value, allDestinations);
+        updateEstimatedTripCost(estimatedCost);
+      });
+  };
 });
