@@ -7,7 +7,6 @@ const { travelers, trips, destinations } = require('./test-data.js');
 ////////////////////* Tests *////////////////////
 describe('traveler object creation', function () {
   it('should add trips and destination data to user object', function () {
-    // console.log(getTravelerData(travelers[0], trips, destinations));
     expect(getCurrentTraveler(travelers[0], trips, destinations)).to.deep.equal({
       traveler: { id: 1, name: 'Ham Leadbeater', travelerType: 'relaxer' },
       trips: [
@@ -33,7 +32,7 @@ describe('traveler object creation', function () {
         }
       ]
     });
-    // console.log(getCurrentTraveler(travelers[1], trips, destinations));
+
     expect(getCurrentTraveler(travelers[1], trips, destinations)).to.deep.equal({
       traveler: { id: 2, name: 'Rachael Vaughten', travelerType: 'thrill-seeker' },
       trips: [
@@ -143,7 +142,6 @@ describe('traveler object creation', function () {
   });
 
   it('should add empty arrays to user object if no trips and/or destinations data is found', function () {
-    // console.log(getCurrentTraveler(travelers[2], trips, destinations));
     expect(getCurrentTraveler(travelers[2], trips, destinations)).to.deep.equal({
       traveler: { id: 3, name: 'Sibby Dawidowitsch', travelerType: 'shopper' },
       trips: [],
@@ -172,6 +170,7 @@ describe('tests that require specific sets of user data', function () {
         travelers: 3,
         suggestedActivities: []
       });
+
       expect(getCompleteTrip(travelerWithManyTrips.trips[0], travelerWithManyTrips.destinations)).to.deep.equal({
         tripID: 89,
         userID: 2,
@@ -186,9 +185,11 @@ describe('tests that require specific sets of user data', function () {
         suggestedActivities: []
       });
     });
+
     it('should return null if current traveler has no trip info', function () {
       expect(getCompleteTrip(travelerWithNoTrips.trips[0], travelerWithNoTrips.destinations)).to.be.null;
     });
+
     it('should return an array of trip objects including destination info for all of a given traveler\'s trips', function () {
       expect(getCurrentTravelerCompleteTrips(travelerWithOneTrip.trips, travelerWithOneTrip.destinations)).to.deep.equal([
         {
@@ -205,6 +206,7 @@ describe('tests that require specific sets of user data', function () {
           suggestedActivities: []
         }
       ]);
+
       expect(getCurrentTravelerCompleteTrips(travelerWithManyTrips.trips, travelerWithManyTrips.destinations)).to.deep.equal([
         {
           tripID: 89,
@@ -286,8 +288,22 @@ describe('tests that require specific sets of user data', function () {
         }
       ]);
     });
+
     it('should return null if current traveler has no trip info', function () {
       expect(getCurrentTravelerCompleteTrips(travelerWithNoTrips.trips[0], travelerWithNoTrips.destinations)).to.be.null;
-    })
+    });
+  });
+
+  describe('total spend', function () {
+    const combinedTrips = getCurrentTravelerCompleteTrips(travelerWithManyTrips.trips, travelerWithManyTrips.destinations);
+
+    it('should return the total spend for a given year', function () {
+      expect(getTotalSpendThisYear(combinedTrips, 2019)).to.deep.equal('3762.00');
+      expect(getTotalSpendThisYear(combinedTrips, 2020)).to.deep.equal('24550.90');
+    });
+
+    it('should return 0.00 if there has been no spend in a given year', function () {
+      expect(getTotalSpendThisYear(combinedTrips, 2023)).to.deep.equal('0.00');
+    });
   });
 });

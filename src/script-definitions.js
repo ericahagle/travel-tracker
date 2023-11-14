@@ -56,7 +56,7 @@ function getTotalSpendThisYear(combinedTrips, year) {
       totalSpend += ((trip.estimatedLodgingCostPerDay * trip.tripDuration) + (trip.estimatedFlightCostPerPerson * trip.travelers)) * 1.1;
     }
   });
-  return totalSpend;
+  return totalSpend.toFixed(2);
 }
 
 ////////////////////* Exports *////////////////////
