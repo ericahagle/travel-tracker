@@ -4,6 +4,7 @@ const pastTripsList = document.querySelector('#pastTrips');
 const pendingTripsList = document.querySelector('#pendingTrips');
 const upcomingTripsList = document.querySelector('#upcomingTrips');
 const totalSpendAmount = document.querySelector('#totalSpendAmount');
+const destinationsDropDown = document.querySelector('#destinations');
 
 ////////////////////* DOM Updates *////////////////////
 const updateGreeting = (currentTraveler) => {
@@ -83,11 +84,20 @@ const updateTotalSpendAmount = (totalSpend) => {
   totalSpendAmount.innerHTML = `$${totalSpend}`;
 }
 
+const updateDestinationsDropDown = (destinations) => {
+  let value = 0;
+  const destinationListItem = destinations.map((destination) => {
+    return `<option value="dest${value += 1}">${destination.destination}</option>`
+  });
+  destinationsDropDown.innerHTML += destinationListItem;
+}
+
 ////////////////////* Exports *////////////////////
 export {
   updateGreeting,
   updatePastTripsList,
   updatePendingTripsList,
   updateUpcomingTripsList,
-  updateTotalSpendAmount
+  updateTotalSpendAmount,
+  updateDestinationsDropDown
 }

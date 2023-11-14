@@ -26,7 +26,8 @@ import {
   updatePastTripsList,
   updatePendingTripsList,
   updateUpcomingTripsList,
-  updateTotalSpendAmount
+  updateTotalSpendAmount,
+  updateDestinationsDropDown
 } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
@@ -47,5 +48,6 @@ window.addEventListener('load', () => {
       const currentYear = today.getFullYear();
       const totalSpend = getTotalSpendThisYear(currentTravelerCompleteTrips, currentYear);
       updateTotalSpendAmount(totalSpend);
+      updateDestinationsDropDown(allDestinations);
     });
 });
