@@ -59,10 +59,22 @@ function getTotalSpendThisYear(combinedTrips, year) {
   return totalSpend.toFixed(2);
 }
 
+function getCostOfRequestedTrip(duration, numOfTravelers, destinationName, destinations) {
+  const requestedDestination = destinations.find((destination) => {
+    return destination.destination === destinationName;
+  });
+  if (!requestedDestination) {
+    return null;
+  } else {
+    return (((requestedDestination.estimatedLodgingCostPerDay * duration) + (requestedDestination.estimatedFlightCostPerPerson * numOfTravelers)) * 1.1).toFixed(2);
+  }
+}
+
 ////////////////////* Exports *////////////////////
 module.exports = {
   getCurrentTraveler,
   getCompleteTrip,
   getCurrentTravelerCompleteTrips,
-  getTotalSpendThisYear
+  getTotalSpendThisYear,
+  getCostOfRequestedTrip
 }
