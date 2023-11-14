@@ -3,6 +3,7 @@ const greeting = document.querySelector('#travelerDashboardHeader');
 const pastTripsList = document.querySelector('#pastTrips');
 const pendingTripsList = document.querySelector('#pendingTrips');
 const upcomingTripsList = document.querySelector('#upcomingTrips');
+const totalSpendAmount = document.querySelector('#totalSpendAmount');
 
 ////////////////////* DOM Updates *////////////////////
 const updateGreeting = (currentTraveler) => {
@@ -77,5 +78,16 @@ const updateUpcomingTripsList = (currentTravelerCompleteTrips) => {
   upcomingTripsList.innerHTML += currentTravelerPastTrip;
 }
 
+const updateTotalSpendAmount = (totalSpend) => {
+  totalSpendAmount.innerHTML = '';
+  totalSpendAmount.innerHTML = totalSpend;
+}
+
 ////////////////////* Exports *////////////////////
-export { updateGreeting, updatePastTripsList, updatePendingTripsList, updateUpcomingTripsList }
+export {
+  updateGreeting,
+  updatePastTripsList,
+  updatePendingTripsList,
+  updateUpcomingTripsList,
+  updateTotalSpendAmount
+}
