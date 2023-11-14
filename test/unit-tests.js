@@ -1,7 +1,7 @@
 ////////////////////* Imports *////////////////////
 import chai from 'chai';
 const expect = chai.expect;
-const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips } = require('../src/script-definitions.js');
+const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips, getTotalSpendThisYear } = require('../src/script-definitions.js');
 const { travelers, trips, destinations } = require('./test-data.js');
 
 ////////////////////* Tests *////////////////////
