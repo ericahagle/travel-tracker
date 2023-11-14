@@ -92,7 +92,7 @@ const updateTotalSpendAmount = (totalSpend) => {
 const updateDestinationsDropDown = (destinations) => {
   let value = 0;
   const destinationListItem = destinations.map((destination) => {
-    return `<option value="${destination.destination}">${destination.destination}</option>`
+    return `<option value="${destination.destination}" id="${destination.id}">${destination.destination}</option>`
   });
   destinationsDropDown.innerHTML += destinationListItem;
 }
