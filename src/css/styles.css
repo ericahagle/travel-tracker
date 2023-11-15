@@ -70,6 +70,10 @@ ul {
   list-style-type: none;
 }
 
+.estimated-trip-cost {
+  font-weight: bold;
+}
+
 .error-message {
   color: red;
 }

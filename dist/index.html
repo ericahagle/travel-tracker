@@ -14,9 +14,9 @@
     <h2 class="login-instructions" id="loginInstructions">Please sign in to view your Dashboard</h2>
     <p class="error-message" id="errorMessage"></p>
     <label for="username">User Name</label><br>
-    <input type="text" placeholder="Enter username" id="username" name="username" required><br>
+    <input id="username" type="text" placeholder="Enter username" required><br>
     <label for="password">Password</label><br>
-    <input type="text" placeholder="Enter password" id="password" name="password" required><br>
+    <input id="password" type="password" placeholder="Enter password" required><br>
     <button type="submit" id="loginButton">Login</button>
   </form>
   <main class="dashboard hidden" id="travelerDashboard">
@@ -45,17 +45,17 @@
     </section>
     <form class="single create-trip-request" id="tripRequestForm">
       <h2>Submit Trip Request</h2>
-      <label for="start-date">When would you like to leave?</label>
-      <input type="date" placeholder="Start Date" id="startDate" name="startDate" required>
+      <label for="startDate">When would you like to leave?</label>
+      <input id="startDate" type="date" required>
       <label for="duration">How long would you like to stay?</label>
-      <input type="number" name="duration" placeholder="1" min="1" id="duration" required>
-      <label for="travelers">How many in your party?</label>
-      <input type="number" name="numberOfTravelers" placeholder="1" min="1" id="numOfTravelers" required>
+      <input id="duration" type="number" placeholder="1" min="1"  required>
+      <label for="numOfTravelers">How many in your party?</label>
+      <input id="numOfTravelers" type="number" placeholder="1" min="1"  required>
       <label for="destinations">Where would you like to go?</label>
       <select name="destinations" id="destinations" required>
         <option value="" disabled selected>Select your destination</option>
       </select>
-      <h3 id="estimatedTripCost"></h3>
+      <p class="estimated-trip-cost" id="estimatedTripCost"></p>
       <button type="submit" id="tripRequestSubmitButton">Submit Trip Request</button>
     </form>
   </main>

@@ -49,7 +49,7 @@ const updatePastTripsList = (currentTravelerCompleteTrips) => {
   })
 
   const currentTravelerPastTrip = dateCheckedTrips.map(trip =>
-    `<li><img src="${trip.destinationImage}" alt="Image of ${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
+    `<li><img src="${trip.destinationImage}" alt="${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
 
   if (!currentTravelerPastTrip) {
     pastTripsList.innerHTML = `<li>You currently have no past trips.</li>`;
@@ -70,7 +70,7 @@ const updatePendingTripsList = (currentTravelerCompleteTrips) => {
   })
 
   const currentTravelerPendingTrip = dateCheckedTrips.map(trip =>
-    `<li><img src="${trip.destinationImage}" alt="Image of ${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
+    `<li><img src="${trip.destinationImage}" alt="${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
 
   if (!currentTravelerPendingTrip) {
     pendingTripsList.innerHTML = `<li>You currently have no pending trips.</li>`;
@@ -91,7 +91,7 @@ const updateUpcomingTripsList = (currentTravelerCompleteTrips) => {
   })
 
   const currentTravelerPastTrip = dateCheckedTrips.map(trip =>
-    `<li><img src="${trip.destinationImage}" alt="Image of ${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
+    `<li><img src="${trip.destinationImage}" alt="${trip.destination}" width="100%" height="auto"><p>${trip.tripDate}: ${trip.tripDuration} days in ${trip.destination}</p></li>`).join('<br>');
 
   if (!currentTravelerPastTrip) {
     upcomingTripsList.innerHTML = `<li>You currently have no upcoming trips.</li>`;
