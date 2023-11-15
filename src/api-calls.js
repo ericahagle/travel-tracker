@@ -1,5 +1,4 @@
 ////////////////////* Global Variables *////////////////////
-// const travelerAPI = `http://localhost:3001/api/v1/travelers/${travelerID}`;
 const allTravelersAPI = 'http://localhost:3001/api/v1/travelers';
 const tripsAPI = 'http://localhost:3001/api/v1/trips';
 const destinationsAPI = 'http://localhost:3001/api/v1/destinations';

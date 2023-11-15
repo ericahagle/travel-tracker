@@ -29,6 +29,8 @@ import {
 
 ////////////////////* Import from dom-updates.js *////////////////////
 import {
+  addLoginErrorMessage,
+  clearLoginErrorMessage,
   updateGreeting,
   updatePastTripsList,
   updatePendingTripsList,
@@ -51,34 +53,43 @@ import {
 } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
+loginForm.addEventListener('input', (event) => {
+  event.preventDefault();
+  clearLoginErrorMessage();
+});
+
 loginButton.addEventListener('click', (event) => {
   event.preventDefault();
   if (verifyUserName(username.value) && verifyPassword(password.value)) {
     travelerID = parseInt(username.value.slice(8));
+    clearLoginErrorMessage();
     loginForm.classList.add('hidden');
     travelerDashboard.classList.remove('hidden');
     fetchAllData(travelerID)
-    .then(data => {
-      const traveler = data[0];
-      const allTravelers = data[1];
-      const allTrips = data[2];
-      const allDestinations = data[3];
-      const currentTraveler = getCurrentTraveler(traveler, allTrips, allDestinations);
-      updateGreeting(currentTraveler);
-      const currentTravelerCompleteTrips = getCurrentTravelerCompleteTrips(currentTraveler.trips, currentTraveler.destinations);
-      updatePastTripsList(currentTravelerCompleteTrips);
-      updatePendingTripsList(currentTravelerCompleteTrips);
-      updateUpcomingTripsList(currentTravelerCompleteTrips);
-      const today = new Date();
-      const currentYear = today.getFullYear();
-      const totalSpend = getTotalSpendThisYear(currentTravelerCompleteTrips, currentYear);
-      updateTotalSpendAmount(totalSpend);
-      updateDestinationsDropDown(allDestinations);
-    });
+      .then(data => {
+        const traveler = data[0];
+        const allTravelers = data[1];
+        const allTrips = data[2];
+        const allDestinations = data[3];
+        const currentTraveler = getCurrentTraveler(traveler, allTrips, allDestinations);
+        updateGreeting(currentTraveler);
+        const currentTravelerCompleteTrips = getCurrentTravelerCompleteTrips(currentTraveler.trips, currentTraveler.destinations);
+        updatePastTripsList(currentTravelerCompleteTrips);
+        updatePendingTripsList(currentTravelerCompleteTrips);
+        updateUpcomingTripsList(currentTravelerCompleteTrips);
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const totalSpend = getTotalSpendThisYear(currentTravelerCompleteTrips, currentYear);
+        updateTotalSpendAmount(totalSpend);
+        updateDestinationsDropDown(allDestinations);
+      });
+  } else {
+    addLoginErrorMessage();
   };
 });
 
-tripRequestForm.addEventListener('input', () => {
+tripRequestForm.addEventListener('input', (event) => {
+  event.preventDefault();
   if (requestedTripDate.value && requestedTripDuration.value && requestedTripTravelers.value && destinationsDropDown.value) {
     fetchDestinations()
       .then(data => {
