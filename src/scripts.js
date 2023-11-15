@@ -6,6 +6,7 @@ import './images/turing-logo.png';
 
 ////////////////////* Import from api-calls.js *////////////////////
 import {
+  travelerUserID,
   fetchTraveler,
   fetchAllTravelers,
   fetchTrips,
@@ -20,7 +21,10 @@ import {
   getCurrentTravelerCompleteTrips,
   getTotalSpendThisYear,
   getCostOfRequestedTrip,
-  getNewTripObject
+  getNewTripObject,
+  verifyUserName,
+  verifyPassword,
+  travelerID
 } from './script-definitions';
 
 ////////////////////* Import from dom-updates.js *////////////////////
@@ -35,6 +39,8 @@ import {
   username,
   password,
   loginButton,
+  loginForm,
+  travelerDashboard,
   tripRequestForm,
   requestedTripDate,
   requestedTripDuration,
@@ -45,14 +51,13 @@ import {
 } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
-loginButton.addEventListener('click', () => {
-  if (username.value && password.value) {
-    
-  }
-})
-
-window.addEventListener('load', () => {
-  fetchAllData(13)
+loginButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  if (verifyUserName(username.value) && verifyPassword(password.value)) {
+    travelerID = parseInt(username.value.slice(8));
+    loginForm.classList.add('hidden');
+    travelerDashboard.classList.remove('hidden');
+    fetchAllData(travelerID)
     .then(data => {
       const traveler = data[0];
       const allTravelers = data[1];
@@ -70,6 +75,7 @@ window.addEventListener('load', () => {
       updateTotalSpendAmount(totalSpend);
       updateDestinationsDropDown(allDestinations);
     });
+  };
 });
 
 tripRequestForm.addEventListener('input', () => {
@@ -86,13 +92,10 @@ tripRequestForm.addEventListener('input', () => {
 tripRequestSubmitButton.addEventListener('click', (event) => {
   event.preventDefault();
   if (requestedTripDate.value && requestedTripDuration.value && requestedTripTravelers.value && destinationsDropDown.value) {
-    console.log("Destination Selected:", destinationsDropDown.value);
     fetchTrips()
       .then(data => {
         const allTrips = data;
-        console.log("All Trips:", allTrips);
-        const newTrip = getNewTripObject(13, destinationsDropDown.value, requestedTripTravelers.value, requestedTripDate.value, requestedTripDuration.value, allTrips);
-        console.log("New Trip:", newTrip);
+        const newTrip = getNewTripObject(travelerID, destinationsDropDown.value, requestedTripTravelers.value, requestedTripDate.value, requestedTripDuration.value, allTrips);
         postNewTrip(newTrip)
           .then(data => {
             requestedTripDate.value = '';

@@ -5,7 +5,7 @@ const { verifyUserName, verifyPassword, getCurrentTraveler, getCompleteTrip, get
 const { travelers, trips, destinations } = require('./test-data.js');
 
 ////////////////////* Tests *////////////////////
-describe.only('login', function () {
+describe('login', function () {
   it('should return true if username is valid', function () {
     expect(verifyUserName('traveler1')).to.be.true;
     expect(verifyUserName('traveler50')).to.be.true;

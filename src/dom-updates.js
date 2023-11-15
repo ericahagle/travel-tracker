@@ -2,6 +2,8 @@
 const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 const loginButton = document.querySelector('#loginButton');
+const loginForm = document.querySelector('#loginForm');
+const travelerDashboard = document.querySelector('#travelerDashboard');
 const greeting = document.querySelector('#travelerDashboardHeader');
 const pastTripsList = document.querySelector('#pastTrips');
 const pendingTripsList = document.querySelector('#pendingTrips');
@@ -118,6 +120,8 @@ export {
   username,
   password,
   loginButton,
+  loginForm,
+  travelerDashboard,
   tripRequestForm,
   requestedTripDate,
   requestedTripDuration,

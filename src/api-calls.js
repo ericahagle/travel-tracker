@@ -1,19 +1,19 @@
 ////////////////////* Global Variables *////////////////////
-// const travelerAPI = `http://localhost:3001/api/v1/travelers/${id}`;
+// const travelerAPI = `http://localhost:3001/api/v1/travelers/${travelerID}`;
 const allTravelersAPI = 'http://localhost:3001/api/v1/travelers';
 const tripsAPI = 'http://localhost:3001/api/v1/trips';
 const destinationsAPI = 'http://localhost:3001/api/v1/destinations';
-let traveler = null;
-let allTravelers = null;
-let allTrips = null;
-let allDestinations = null;
-let travelerID = null;
+let traveler;
+let allTravelers;
+let allTrips;
+let allDestinations;
+let travelerID;
 
 ////////////////////* Fetch Calls *////////////////////
 
 /////* Fetch Individual Traveler */////
-const fetchTraveler = (id) => {
-  return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
+const fetchTraveler = (travelerID) => {
+  return fetch(`http://localhost:3001/api/v1/travelers/${travelerID}`)
     .then(response => {
       if (!response.ok) {
         console.log(`Response code: ${response.status}`);
@@ -89,6 +89,7 @@ const fetchDestinations = () => {
 
 /////* Fetch All Data */////
 const fetchAllData = (travelerID) => {
+  travelerID = travelerID.toString();
   return Promise.all([
     fetchTraveler(travelerID),
     fetchAllTravelers(),
@@ -115,7 +116,7 @@ const postNewTrip = (newTrip) => {
     })
     .then(data => {
       console.log(data);
-      return fetchAllData(13);
+      return fetchAllData(data.newTrip.userID);
     })
     .catch(error => {
       console.log(error);
