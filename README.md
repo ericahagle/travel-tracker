@@ -1,101 +1,58 @@
-# Webpack Starter Kit
+# Travel Tracker
+![Tests](https://badgen.net/badge/tests/passing/green?icon=github)
 
-## Clone This Repo
+# Tech Stack
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![Mocha](https://img.shields.io/badge/-mocha-%238D6748?style=for-the-badge&logo=mocha&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+# Contributors
+[Erica Hagle](https://github.com/ericahagle)
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+# Abstract
+This application is designed to allow travelers to track their past, upcoming, and pending trips, as well as create and submit new trip requests. The traveler can see an estimate of trip cost prior to submission, and can see the total amount in US dollars that they have spent on travel with the agency over the course of this year. The application has been tested against several accessiblity metrics for users who may be colorblind or have other visual impairments, as well as for users who may have mobility impairments.
 
-Now try to commit something (just add a line in the README) and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+# Context
+This application was built as the final solo project of Turing School of Software and Design's Front End Web Development program, Mod 2. We were given 7 days, from kick-off, to complete and submit the project for evaluation.
 
-This is a line that I've added as a test.
+# Preview
 
-## Setup
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
+# Installation Instructions
+1. Clone this client respository to your local machine
+1. Clone this server repository to your local machine
+1. Navigate (`cd`) to your local directory containing the server repository
+1. Run `npm install` to install the dependencies
+1. Run `npm start` to start the server
+1. Open a separate Terminal window or tab
+1. Navigate (`cd`) to your local directory containing the client repository
+1. Run `npm install` to install the dependencies
+1. Run `npm start` to start the server
+1. On your web browser, navigate to http://localhost:8080/
+1. Log into the app with the following credentials:
+    - username: `traveler1` (where 1 is the ID of the user, and can be any integer between 1 and 50)
+    - password: `travel`
 
-Then install the library dependencies. Run:
 
-```bash
-npm install
-```
+# Learning Goals
+- Use object and array prototype methods to perform data manipulation
+- Create a clear and accessible user interface
+- Make network requests to retrieve data
+- Implement a robust testing suite using TDD
+- Write DRY, reusable code that follows SRP (Single Responsibility Principle)
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with the Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
-
-## Where to Add Your Code
-
-### JavaScript
-
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
-
-**Create all of your feature code files in the `src` directory.**
-
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
-
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
-
-### HTML
-
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+# Challenges & Wins
+## Challenges
+- This was the first time I approached creating an app that uses both GET and POST fetch API calls, as well as writing all functions, unit tests, and DOM updates as the sole contributor. It was a LOT, but I felt like I really learned even more by implementing these technologies myself.
+- Getting the POST to work was a fun challenge. I ended up leaning on some of my cohort-mates to help me suss out an issue that was causing errors. Luckily, they had already run into the same issue and were able to point me in the right direction! (Turns out the date wasn't formatting correctly, so I had to run a little helper function to format it in the way that the API wanted.)
+- I spent pretty much the entire project coughing and not sleeping. I was stricken with a bad upper respiratory infection right before kickoff and it lasted through the duration. Trying to build an app while coughing and in a brain fog is NOT FUN.
+## Wins
+- Working solo means that I can arrange my project in not only a clean and orderly way, but specifically in a clean and orderly way that makes sense to _me_. 
+- Once I got rolling, I was surprised at how easy some of the coding came for me. There were bits like calculating the total yearly spend that I heard other folks were having a lot of trouble with, that I somehow solved very quickly. There were plenty of hiccups along the way, but I managed to slog through with very minimal outside help. That felt pretty great.
+- I persevered. Despite illness and time constraints, I succeeded in producing a simple, clean, _usable_ application. I'm looking forward to making it more robust in in the future.
