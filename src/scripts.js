@@ -34,7 +34,8 @@ import {
   requestedTripDate,
   requestedTripDuration,
   requestedTripTravelers,
-  destinationsDropDown
+  destinationsDropDown,
+  tripRequestSubmitButton
 } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
@@ -68,4 +69,20 @@ tripRequestForm.addEventListener('input', () => {
         updateEstimatedTripCost(estimatedCost);
       });
   };
+});
+
+tripRequestSubmitButton.addEventListener('click', () => {
+  if (requestedTripDate.value && requestedTripDuration.value && requestedTripTravelers.value && destinationsDropDown.value) {
+    fetchTrips()
+      .then(data => {
+        const allTrips = data;
+        const newTrip = getNewTripObject(7, allTrips);
+        postNewTrip(newTrip)
+          .then(data => {
+            console.log(allTrips);
+            updatePendingTripsList(newTrip);
+          });
+
+      });
+  }
 });

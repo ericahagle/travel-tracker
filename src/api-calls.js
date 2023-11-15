@@ -97,6 +97,31 @@ const fetchAllData = (travelerID) => {
   ])
 }
 
+/////* POST New Trip */////
+const postNewTrip = (newTrip) => {
+  return fetch(tripsAPI, {
+    method: 'POST',
+    body: JSON.stringify(newTrip),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        console.log(`Response code: ${response.status}`);
+        throw Error('Something went wrong.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      return fetchTrips();
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}
+
+
 ////////////////////* Exports *////////////////////
 export {
   fetchTraveler,

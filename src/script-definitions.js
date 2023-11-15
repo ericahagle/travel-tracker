@@ -70,11 +70,29 @@ function getCostOfRequestedTrip(duration, numOfTravelers, destinationName, desti
   }
 }
 
+const getNewTripObject = (userID, destID, numofTrav, date, duration, trips) => {
+	const tripID = trips.reduce((tripid, trip) => {
+		tripid = trip.id;
+		return tripid + 1;
+	}, 0);
+	return {
+		id: tripID,
+		userID: userID,
+		destinationID: destID,
+		travelers: numofTrav,
+		date: date,
+		duration: duration,
+		status: 'pending',
+		suggestedActivities: []
+	}
+}
+
 ////////////////////* Exports *////////////////////
 module.exports = {
   getCurrentTraveler,
   getCompleteTrip,
   getCurrentTravelerCompleteTrips,
   getTotalSpendThisYear,
-  getCostOfRequestedTrip
+  getCostOfRequestedTrip,
+  getNewTripObject
 }
