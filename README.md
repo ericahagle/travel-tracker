@@ -22,7 +22,7 @@ This application is designed to allow travelers to track their past, upcoming, a
 This application was built as the final solo project of Turing School of Software and Design's Front End Web Development program, Mod 2. We were given 7 days, from kick-off, to complete and submit the project for evaluation.
 
 # Preview
-
+https://github.com/ericahagle/travel-tracker/assets/133910120/fe936a82-d7ed-4e09-b755-9f62f5f1fda5
 
 # Installation Instructions
 1. Clone this client respository to your local machine
@@ -38,7 +38,6 @@ This application was built as the final solo project of Turing School of Softwar
 1. Log into the app with the following credentials:
     - username: `traveler1` (where 1 is the ID of the user, and can be any integer between 1 and 50)
     - password: `travel`
-
 
 # Learning Goals
 - Use object and array prototype methods to perform data manipulation
