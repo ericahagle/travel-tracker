@@ -26,7 +26,7 @@ const fetchTraveler = (travelerID) => {
     })
     .catch(error => {
       console.log(error);
-    })
+    });
 }
 
 /////* Fetch All Travelers */////
@@ -45,7 +45,7 @@ const fetchAllTravelers = () => {
     })
     .catch(error => {
       console.log(error);
-    })
+    });
 }
 
 /////* Fetch All Trips */////
@@ -64,7 +64,7 @@ const fetchTrips = () => {
     })
     .catch(error => {
       console.log(error);
-    })
+    });
 }
 
 /////* Fetch All Destinations */////
@@ -83,7 +83,7 @@ const fetchDestinations = () => {
     })
     .catch(error => {
       console.log(error);
-    })
+    });
 }
 
 /////* Fetch All Data */////
@@ -94,7 +94,7 @@ const fetchAllData = (travelerID) => {
     fetchAllTravelers(),
     fetchTrips(),
     fetchDestinations()
-  ])
+  ]);
 }
 
 /////* POST New Trip */////
@@ -119,7 +119,7 @@ const postNewTrip = (newTrip) => {
     })
     .catch(error => {
       console.log(error);
-    })
+    });
 }
 
 

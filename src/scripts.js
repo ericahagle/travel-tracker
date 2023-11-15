@@ -1,14 +1,8 @@
 ////////////////////* Import CSS File *////////////////////
 import './css/styles.css';
 
-////////////////////* Import images *////////////////////
-import './images/turing-logo.png';
-
 ////////////////////* Import from api-calls.js *////////////////////
 import {
-  travelerUserID,
-  fetchTraveler,
-  fetchAllTravelers,
   fetchTrips,
   fetchDestinations,
   fetchAllData,
