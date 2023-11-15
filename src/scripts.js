@@ -32,6 +32,9 @@ import {
   updateTotalSpendAmount,
   updateDestinationsDropDown,
   updateEstimatedTripCost,
+  username,
+  password,
+  loginButton,
   tripRequestForm,
   requestedTripDate,
   requestedTripDuration,
@@ -42,6 +45,12 @@ import {
 } from './dom-updates';
 
 ////////////////////* Event Listeners *////////////////////
+loginButton.addEventListener('click', () => {
+  if (username.value && password.value) {
+    
+  }
+})
+
 window.addEventListener('load', () => {
   fetchAllData(13)
     .then(data => {
@@ -103,7 +112,6 @@ tripRequestSubmitButton.addEventListener('click', (event) => {
             const totalSpend = getTotalSpendThisYear(currentTravelerCompleteTrips, currentYear);
             updateTotalSpendAmount(totalSpend);
           });
-
       });
-  }
+  };
 });

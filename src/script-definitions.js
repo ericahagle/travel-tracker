@@ -1,4 +1,21 @@
 ////////////////////* Functions *////////////////////
+function verifyUserName(input) {
+  const id = parseInt(input.slice(8));
+  if (input.slice(0, 8) === 'traveler' && id > 0 && id < 51) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function verifyPassword(input) {
+  if (input === 'travel') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function getCurrentTraveler(traveler, trips, destinations) {
   const travelerTripsData = trips.filter((trip) => {
     return trip.userID === traveler.id;
@@ -93,6 +110,8 @@ const getNewTripObject = (userID, destID, numofTrav, date, duration, trips) => {
 
 ////////////////////* Exports *////////////////////
 module.exports = {
+  verifyUserName,
+  verifyPassword,
   getCurrentTraveler,
   getCompleteTrip,
   getCurrentTravelerCompleteTrips,

@@ -1,4 +1,7 @@
 ////////////////////* Query Selectors *////////////////////
+const username = document.querySelector('#username');
+const password = document.querySelector('#password');
+const loginButton = document.querySelector('#loginButton');
 const greeting = document.querySelector('#travelerDashboardHeader');
 const pastTripsList = document.querySelector('#pastTrips');
 const pendingTripsList = document.querySelector('#pendingTrips');
@@ -112,6 +115,9 @@ export {
   updateTotalSpendAmount,
   updateDestinationsDropDown,
   updateEstimatedTripCost,
+  username,
+  password,
+  loginButton,
   tripRequestForm,
   requestedTripDate,
   requestedTripDuration,

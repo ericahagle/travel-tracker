@@ -1,10 +1,31 @@
 ////////////////////* Imports *////////////////////
 import chai from 'chai';
 const expect = chai.expect;
-const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips, getTotalSpendThisYear, getCostOfRequestedTrip, formatDate, getNewTripObject } = require('../src/script-definitions.js');
+const { verifyUserName, verifyPassword, getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips, getTotalSpendThisYear, getCostOfRequestedTrip, formatDate, getNewTripObject } = require('../src/script-definitions.js');
 const { travelers, trips, destinations } = require('./test-data.js');
 
 ////////////////////* Tests *////////////////////
+describe.only('login', function () {
+  it('should return true if username is valid', function () {
+    expect(verifyUserName('traveler1')).to.be.true;
+    expect(verifyUserName('traveler50')).to.be.true;
+  });
+
+  it('should return false if username is invalid', function () {
+    expect(verifyUserName('traveling50')).to.be.false;
+    expect(verifyUserName('traveler51')).to.be.false;
+  });
+
+  it('should return true if password is valid', function () {
+    expect(verifyPassword('travel')).to.be.true;
+  });
+
+  it('should return false if password is invalid', function () {
+    expect(verifyPassword('travelz')).to.be.false;
+    expect(verifyPassword('trav31')).to.be.false;
+  });
+});
+
 describe('traveler object creation', function () {
   it('should add trips and destination data to user object', function () {
     expect(getCurrentTraveler(travelers[0], trips, destinations)).to.deep.equal({
