@@ -16,18 +16,22 @@ form {
   border: gray solid 3px;
 }
 
-label, input, select {
+label,
+input,
+select {
   flex: 2 50%;
   flex-grow: 2;
 }
 
-input, select {
+input,
+select {
   margin: 10px 0;
   padding: 15px 18px;
   box-sizing: border-box;
 }
 
-input, button {
+input,
+button {
   max-width: 50%;
   border-radius: 5px;
 }
@@ -45,15 +49,27 @@ button:hover {
   cursor: pointer;
 }
 
-.single, .form-header, .estimated-trip-cost, button {
+.single,
+.form-header,
+.estimated-trip-cost,
+button {
   flex: 1 100%;
 }
 
-.triple, .total-spend, .form-header, .estimated-trip-cost, button, form, h1, h2 {
+.triple,
+.total-spend,
+.form-header,
+.estimated-trip-cost,
+button,
+form,
+h1,
+h2 {
   text-align: center;
 }
 
-.form-header, .estimated-trip-cost, button {
+.form-header,
+.estimated-trip-cost,
+button {
   font-weight: bold;
   margin-bottom: 20px;
 }
