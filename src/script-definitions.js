@@ -5,7 +5,7 @@ function verifyUserName(input) {
     return true;
   } else {
     return false;
-  };
+  }
 }
 
 function verifyPassword(input) {
@@ -13,7 +13,7 @@ function verifyPassword(input) {
     return true;
   } else {
     return false;
-  };
+  }
 }
 
 function getCurrentTraveler(traveler, trips, destinations) {
@@ -30,7 +30,7 @@ function getCurrentTraveler(traveler, trips, destinations) {
   });
 
   const currentTraveler = {
-    traveler: traveler,
+    traveler,
     trips: travelerTripsData || [],
     destinations: travelerDestinationsData || []
   };
@@ -55,7 +55,7 @@ function getCompleteTrip(trip, destinations) {
       travelers: trip.travelers,
       suggestedActivities: trip.suggestedActivities,
     };
-  };
+  }
 }
 
 function getCurrentTravelerCompleteTrips(trips, destinations) {
@@ -63,7 +63,7 @@ function getCurrentTravelerCompleteTrips(trips, destinations) {
     return null;
   } else {
     return trips.map(trip => getCompleteTrip(trip, destinations));
-  };
+  }
 }
 
 function getTotalSpendThisYear(combinedTrips, year) {
@@ -71,7 +71,7 @@ function getTotalSpendThisYear(combinedTrips, year) {
   combinedTrips.forEach((trip) => {
     if (trip.tripDate.includes(year)) {
       totalSpend += ((trip.estimatedLodgingCostPerDay * trip.tripDuration) + (trip.estimatedFlightCostPerPerson * trip.travelers)) * 1.1;
-    };
+    }
   });
   return totalSpend.toFixed(2);
 }
@@ -84,7 +84,7 @@ function getCostOfRequestedTrip(duration, numOfTravelers, destinationID, destina
     return null;
   } else {
     return (((requestedDestination.estimatedLodgingCostPerDay * duration) + (requestedDestination.estimatedFlightCostPerPerson * numOfTravelers)) * 1.1).toFixed(2);
-  };
+  }
 }
 
 const formatDate = (dateString) => {

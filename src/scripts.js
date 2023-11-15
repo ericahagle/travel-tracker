@@ -79,7 +79,7 @@ loginButton.addEventListener('click', (event) => {
       });
   } else {
     addLoginErrorMessage();
-  };
+  }
 });
 
 tripRequestForm.addEventListener('input', (event) => {
@@ -91,7 +91,7 @@ tripRequestForm.addEventListener('input', (event) => {
         const estimatedCost = getCostOfRequestedTrip(requestedTripDuration.value, requestedTripTravelers.value, destinationsDropDown.value, allDestinations);
         updateEstimatedTripCost(estimatedCost);
       });
-  };
+  }
 });
 
 tripRequestSubmitButton.addEventListener('click', (event) => {
@@ -121,5 +121,5 @@ tripRequestSubmitButton.addEventListener('click', (event) => {
             updateTotalSpendAmount(totalSpend);
           });
       });
-  };
+  }
 });
