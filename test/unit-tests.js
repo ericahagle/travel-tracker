@@ -1,7 +1,7 @@
 ////////////////////* Imports *////////////////////
 import chai from 'chai';
 const expect = chai.expect;
-const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips, getTotalSpendThisYear, getCostOfRequestedTrip } = require('../src/script-definitions.js');
+const { getCurrentTraveler, getCompleteTrip, getCurrentTravelerCompleteTrips, getTotalSpendThisYear, getCostOfRequestedTrip, formatDate, getNewTripObject } = require('../src/script-definitions.js');
 const { travelers, trips, destinations } = require('./test-data.js');
 
 ////////////////////* Tests *////////////////////
@@ -152,13 +152,32 @@ describe('traveler object creation', function () {
 
 describe('trip cost', function () {
   it('should return the cost of a requested trip', function () {
-    expect(getCostOfRequestedTrip(10, 1, "Paris, France", destinations)).to.deep.equal('1534.50');
+    expect(getCostOfRequestedTrip(10, 1, 7, destinations)).to.deep.equal('1534.50');
 
-    expect(getCostOfRequestedTrip(7, 2, "San Juan, Puerto Rico", destinations)).to.deep.equal('2519.00');
+    expect(getCostOfRequestedTrip(7, 2, 28, destinations)).to.deep.equal('2519.00');
   });
 
   it('should return null if trip is not found', function () {
-    expect(getCostOfRequestedTrip(7, 2, "San Juan, Puerto", destinations)).to.be.null;
+    expect(getCostOfRequestedTrip(7, 2, 666, destinations)).to.be.null;
+  });
+});
+
+describe('new trip object', function () {
+  it('should return a given date in the correct format', function () {
+    expect(formatDate('2023-11-30')).to.deep.equal('2023/11/30');
+  });
+
+  it('should return a new trip object', function () {
+    expect(getNewTripObject(7, 7, 2, '2023/11/30', 10, trips)).to.deep.equal({
+      id: 178,
+      userID: 7,
+      destinationID: 7,
+      travelers: 2,
+      date: '2023/11/30',
+      duration: 10,
+      status: 'pending',
+      suggestedActivities: []
+    });
   });
 });
 

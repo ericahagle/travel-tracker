@@ -10,6 +10,7 @@ const requestedTripDuration = document.querySelector('#duration');
 const requestedTripTravelers = document.querySelector('#numOfTravelers');
 const destinationsDropDown = document.querySelector('#destinations');
 const estimatedTripCost = document.querySelector('#estimatedTripCost');
+const tripRequestSubmitButton = document.querySelector('#tripRequestSubmitButton');
 
 ////////////////////* DOM Updates *////////////////////
 const updateGreeting = (currentTraveler) => {
@@ -90,9 +91,8 @@ const updateTotalSpendAmount = (totalSpend) => {
 }
 
 const updateDestinationsDropDown = (destinations) => {
-  let value = 0;
   const destinationListItem = destinations.map((destination) => {
-    return `<option value="${destination.destination}">${destination.destination}</option>`
+    return `<option value=${destination.id} name="${destination.destination}">${destination.destination}</option>`
   });
   destinationsDropDown.innerHTML += destinationListItem;
 }
@@ -100,6 +100,8 @@ const updateDestinationsDropDown = (destinations) => {
 const updateEstimatedTripCost = (estimatedCost) => {
   estimatedTripCost.innerHTML = `Your estimated trip cost is: $${estimatedCost}`;
 }
+
+
 
 ////////////////////* Exports *////////////////////
 export {
@@ -114,5 +116,7 @@ export {
   requestedTripDate,
   requestedTripDuration,
   requestedTripTravelers,
-  destinationsDropDown
+  destinationsDropDown,
+  tripRequestSubmitButton,
+  estimatedTripCost
 }
