@@ -2,63 +2,42 @@ body {
   background: white;
 }
 
-.dashboard {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+ul {
+  list-style-type: none;
 }
 
-.single {
-  flex: 1 100%;
-}
-
-.triple {
-  flex: 3;
-  text-align: center;
-}
-
-.total-spend {
-  text-align: center;
+li {
+  margin-bottom: 10%;
 }
 
 form {
   width: 35rem;
   margin: auto;
-  text-align: center;
   border: gray solid 3px;
 }
 
-.create-trip-request {
-  align-self: flex-end;
-  max-width: 100rem;
+label, input, select {
+  flex: 2 50%;
+  flex-grow: 2;
 }
 
-h1 h2 {
-  text-align: center;
-}
-
-.login-instructions {
-  padding-top: 50px;
-  padding-bottom: 25px;
-}
-
-input {
-  max-width: 50%;
+input, select {
   margin: 10px 0;
-  border-radius: 5px;
   padding: 15px 18px;
   box-sizing: border-box;
+}
+
+input, button {
+  max-width: 50%;
+  border-radius: 5px;
 }
 
 button {
   background-color: darkblue;
   color: white;
   padding: 10px 20px;
-  border-radius: 5px;
-  margin: 20px 0;
-  max-width: 50%;
+  margin: 30px 0;
   font-size: 18px;
-
 }
 
 button:hover {
@@ -66,16 +45,57 @@ button:hover {
   cursor: pointer;
 }
 
-ul {
-  list-style-type: none;
+.single, .form-header, .estimated-trip-cost, button {
+  flex: 1 100%;
 }
 
-.estimated-trip-cost {
+.triple, .total-spend, .form-header, .estimated-trip-cost, button, form, h1, h2 {
+  text-align: center;
+}
+
+.form-header, .estimated-trip-cost, button {
   font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login-instructions {
+  padding-top: 50px;
+  padding-bottom: 25px;
 }
 
 .error-message {
   color: red;
+}
+
+.dashboard {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.triple {
+  flex: 3;
+}
+
+.trips-list {
+  padding: 3%;
+}
+
+.trip-details {
+  margin-top: 1%;
+}
+
+.create-trip-request {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: space-around;
+  align-self: flex-end;
+  justify-content: space-around;
+  text-align: left;
+  max-width: 100%;
+  padding: 1% 10%;
 }
 
 .hidden {
