@@ -59,9 +59,9 @@ function getTotalSpendThisYear(combinedTrips, year) {
   return totalSpend.toFixed(2);
 }
 
-function getCostOfRequestedTrip(duration, numOfTravelers, destinationName, destinations) {
+function getCostOfRequestedTrip(duration, numOfTravelers, destinationID, destinations) {
   const requestedDestination = destinations.find((destination) => {
-    return destination.destination === destinationName;
+    return parseInt(destination.id) === parseInt(destinationID);
   });
   if (!requestedDestination) {
     return null;
@@ -70,6 +70,10 @@ function getCostOfRequestedTrip(duration, numOfTravelers, destinationName, desti
   }
 }
 
+const formatDate = (dateString) => {
+  return dateString.split('-').join('/');
+};
+
 const getNewTripObject = (userID, destID, numofTrav, date, duration, trips) => {
 	const tripID = trips.reduce((tripid, trip) => {
 		tripid = trip.id;
@@ -77,11 +81,11 @@ const getNewTripObject = (userID, destID, numofTrav, date, duration, trips) => {
 	}, 0);
 	return {
 		id: tripID,
-		userID: userID,
-		destinationID: destID,
-		travelers: numofTrav,
-		date: date,
-		duration: duration,
+		userID: parseInt(userID),
+		destinationID: parseInt(destID),
+		travelers: parseInt(numofTrav),
+		date: formatDate(date),
+		duration: parseInt(duration),
 		status: 'pending',
 		suggestedActivities: []
 	}
@@ -94,5 +98,6 @@ module.exports = {
   getCurrentTravelerCompleteTrips,
   getTotalSpendThisYear,
   getCostOfRequestedTrip,
+  formatDate,
   getNewTripObject
 }

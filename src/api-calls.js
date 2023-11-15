@@ -114,7 +114,8 @@ const postNewTrip = (newTrip) => {
       return response.json();
     })
     .then(data => {
-      return fetchTrips();
+      console.log(data);
+      return fetchAllData(13);
     })
     .catch(error => {
       console.log(error);
@@ -128,5 +129,6 @@ export {
   fetchAllTravelers,
   fetchTrips,
   fetchDestinations,
-  fetchAllData
+  fetchAllData,
+  postNewTrip
 }

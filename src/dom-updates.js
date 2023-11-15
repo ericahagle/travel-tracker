@@ -92,7 +92,7 @@ const updateTotalSpendAmount = (totalSpend) => {
 
 const updateDestinationsDropDown = (destinations) => {
   const destinationListItem = destinations.map((destination) => {
-    return `<option value="${destination.destination}" id="${destination.id}">${destination.destination}</option>`
+    return `<option value=${destination.id} name="${destination.destination}">${destination.destination}</option>`
   });
   destinationsDropDown.innerHTML += destinationListItem;
 }
@@ -117,5 +117,6 @@ export {
   requestedTripDuration,
   requestedTripTravelers,
   destinationsDropDown,
-  tripRequestSubmitButton
+  tripRequestSubmitButton,
+  estimatedTripCost
 }
