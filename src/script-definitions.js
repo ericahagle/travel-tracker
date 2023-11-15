@@ -1,4 +1,21 @@
 ////////////////////* Functions *////////////////////
+function verifyUserName(input) {
+  const id = parseInt(input.slice(8));
+  if (input.slice(0, 8) === 'traveler' && id > 0 && id < 51) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function verifyPassword(input) {
+  if (input === 'travel') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function getCurrentTraveler(traveler, trips, destinations) {
   const travelerTripsData = trips.filter((trip) => {
     return trip.userID === traveler.id;
@@ -75,24 +92,26 @@ const formatDate = (dateString) => {
 };
 
 const getNewTripObject = (userID, destID, numofTrav, date, duration, trips) => {
-	const tripID = trips.reduce((tripid, trip) => {
-		tripid = trip.id;
-		return tripid + 1;
-	}, 0);
-	return {
-		id: tripID,
-		userID: parseInt(userID),
-		destinationID: parseInt(destID),
-		travelers: parseInt(numofTrav),
-		date: formatDate(date),
-		duration: parseInt(duration),
-		status: 'pending',
-		suggestedActivities: []
-	}
+  const tripID = trips.reduce((tripid, trip) => {
+    tripid = trip.id;
+    return tripid + 1;
+  }, 0);
+  return {
+    id: tripID,
+    userID: parseInt(userID),
+    destinationID: parseInt(destID),
+    travelers: parseInt(numofTrav),
+    date: formatDate(date),
+    duration: parseInt(duration),
+    status: 'pending',
+    suggestedActivities: []
+  }
 }
 
 ////////////////////* Exports *////////////////////
 module.exports = {
+  verifyUserName,
+  verifyPassword,
   getCurrentTraveler,
   getCompleteTrip,
   getCurrentTravelerCompleteTrips,

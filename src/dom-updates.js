@@ -1,4 +1,10 @@
 ////////////////////* Query Selectors *////////////////////
+const username = document.querySelector('#username');
+const password = document.querySelector('#password');
+const loginButton = document.querySelector('#loginButton');
+const loginForm = document.querySelector('#loginForm');
+const loginError = document.querySelector('#errorMessage');
+const travelerDashboard = document.querySelector('#travelerDashboard');
 const greeting = document.querySelector('#travelerDashboardHeader');
 const pastTripsList = document.querySelector('#pastTrips');
 const pendingTripsList = document.querySelector('#pendingTrips');
@@ -13,6 +19,14 @@ const estimatedTripCost = document.querySelector('#estimatedTripCost');
 const tripRequestSubmitButton = document.querySelector('#tripRequestSubmitButton');
 
 ////////////////////* DOM Updates *////////////////////
+const addLoginErrorMessage = () => {
+  loginError.innerHTML = 'Invalid login credentials entered, please try again.';
+}
+
+const clearLoginErrorMessage = () => {
+  loginError.innerHTML = '';
+}
+
 const updateGreeting = (currentTraveler) => {
   greeting.innerHTML = '';
 
@@ -105,6 +119,8 @@ const updateEstimatedTripCost = (estimatedCost) => {
 
 ////////////////////* Exports *////////////////////
 export {
+  addLoginErrorMessage,
+  clearLoginErrorMessage,
   updateGreeting,
   updatePastTripsList,
   updatePendingTripsList,
@@ -112,6 +128,11 @@ export {
   updateTotalSpendAmount,
   updateDestinationsDropDown,
   updateEstimatedTripCost,
+  username,
+  password,
+  loginButton,
+  loginForm,
+  travelerDashboard,
   tripRequestForm,
   requestedTripDate,
   requestedTripDuration,
